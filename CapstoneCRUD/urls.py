@@ -13,8 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+
+from CapstoneCRUD import settings
 
 urlpatterns = [
     path('',include('Prescription.urls')),
@@ -22,5 +25,11 @@ urlpatterns = [
     path('read', include('Prescription.urls')),
     path('update', include('Prescription.urls')),
     path('delete', include('Prescription.urls')),
+    path('create_status',include('Prescription.urls')),
+    path('delete_status', include('Prescription.urls')),
+    path('read_status', include('Prescription.urls')),
+    path('update_status', include('Prescription.urls')),
     path('admin/', admin.site.urls),
 ]
+urlpatterns = urlpatterns + static(settings.MEDIA_URL, directory_root=settings.MEDIA_ROOT)
+
