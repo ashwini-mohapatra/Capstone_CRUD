@@ -13,31 +13,47 @@
 <button type="submit"><a href="/update">Update</a></button>
 <button type="submit"><a href="/delete">Delete</a></button>
 
-<form method="post" action="create_status.html">
+<form method="post" action="" >
+    {%csrf_token%}
     <br>
     <br>
-    Prescription Date : <input type="date">
+    <label for="Patient_Name">Patient Name : </label><input type="text" name="Patient_Name" id="Patient_Name">
     <br>
     <br>
-    Patient Name : <input type="text">
+    <label for="Patient_Age"> Patient Age : </label><input type="number" name="Patient_Age" id="Patient_Age">
     <br>
     <br>
-    Patient Image : <input type="file">
+    <label for="Patient_Gender"> Patient Gender : </label><input type="" name="Patient_Gender" id="Patient_Gender">
     <br>
     <br>
-    Patient Mobile No : <input type="number">
+    <label for="Patient_Allergies"> Patient Allergies : </label><textarea name="Patient_Allergies" id="Patient_Allergies">Mention Allergies Here</textarea>
     <br>
     <br>
-    Patient Admitted : <input type="checkbox">
+    <label for="Prescription_Date">Date : </label><input type="date" name="Prescription_Date" id="Prescription_Date">
     <br>
     <br>
-    Patient Height : <input type="number">
+    <label for="Patient_Weight"> Patient Weight : </label><input type="number" name="Patient_Weight" id="Patient_Weight">
     <br>
     <br>
-    <label for="Weight"> Patient Weight</label> : <input type="number">
+    <label for="Patient_Height">Patient Height : </label><input type="number" name="Patient_Height" id="Patient_Height">
     <br>
     <br>
-    <input type="submit" >
+    <label for="Is_Patient_Admitted">Patient Admitted : </label><input type="checkbox" name="Is_Patient_Admitted" id="Is_Patient_Admitted">
+    <br>
+    <br>
+    <label for="Patient_Mobile_No">Patient Mobile No : </label><input type="number" name="Patient_Mobile_No" id="Patient_Mobile_No">
+    <br>
+    <br>
+    <label for="Patient_Image">Patient Image : </label><input type="file" name="Patient_Image" id="Patient_Image">
+    <br>
+    <br>
+    <label for="Patient_Condition_Description"> Patient Condition Description : </label><textarea name="Patient_Condition_Description" id="Patient_Condition_Description">Mention Patient Condition</textarea>
+    <br>
+    <br>
+    <label for="Patient_Medicine"> Patient Medicine : </label><textarea name="Patient_Medicine" id="Patient_Medicine">Mention Medicines</textarea>
+    <br>
+    <br>
+    <input type="submit" value="Add Data">
 </form>
 </body>
 </html>
