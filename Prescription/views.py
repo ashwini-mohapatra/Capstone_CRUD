@@ -48,7 +48,20 @@ class Prescription_Views:
         return render(request, 'read.html', {'title': 'Read', 'Prescriptions': queryset})
 
     def update1(self, request, pid):
-        updatequery = Prescription.objects.filter(Patient_Id=pid)
+        updatequery = Prescription.objects.filter(Patient_No=pid)
+        var100 = ''
+        var101 = ''
+
+        for pres in updatequery:
+
+            dateTimeObj = pres.Prescription_Date
+            var101 = dateTimeObj.strftime("%Y-%m-%d")
+
+            if pres.Is_Patient_Admitted:
+                var100 = 'checked'
+            else:
+                var100 = 'unchecked'
+
         if request.method == 'POST':
             var0 = request.POST.get('Patient_Name', '')
             var4 = request.POST.get('Prescription_Date', datetime.date.today())
@@ -69,7 +82,7 @@ class Prescription_Views:
                                    Patient_Image=var9, Patient_Condition_Description=var10)
                 add.save()
                 return redirect('/read')
-        return render(request, 'update.html', {'title': 'Update', 'Prescriptions': updatequery})
+        return render(request, 'update.html', {'title': 'Update', 'Prescriptions': updatequery, 'Is_Admitted': var100, 'Date': var101})
 
     def delete1(self, request, id):
         Prescription.objects.filter(Patient_No=id).delete()
