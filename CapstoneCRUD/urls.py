@@ -23,12 +23,12 @@ urlpatterns = [
     path('',include('Prescription.urls')),
     path('create', include('Prescription.urls')),
     path('read', include('Prescription.urls')),
-    path('update', include('Prescription.urls')),
-    path('delete', include('Prescription.urls')),
-    path('create_status',include('Prescription.urls')),
-    path('delete_status', include('Prescription.urls')),
-    path('read_status', include('Prescription.urls')),
-    path('update_status', include('Prescription.urls')),
+    path('update/<int:pid>', include('Prescription.urls')),
+    path('delete/<int:id>', include('Prescription.urls')),
+    # path('create_status',include('Prescription.urls')),
+    # path('delete_status', include('Prescription.urls')),
+    # path('read_status', include('Prescription.urls')),
+    # path('update_status', include('Prescription.urls')),
     path('admin/', admin.site.urls),
 ]
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, directory_root=settings.MEDIA_ROOT)

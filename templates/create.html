@@ -10,23 +10,12 @@
 
 <button type="submit"><a href="/">Home</a></button>
 <button type="submit"><a href="/read">Read</a></button>
-<button type="submit"><a href="/update">Update</a></button>
-<button type="submit"><a href="/delete">Delete</a></button>
 
-<form method="post" action="" >
+<form method="post" action="" enctype="multipart/form-data">
     {%csrf_token%}
     <br>
     <br>
     <label for="Patient_Name">Patient Name : </label><input type="text" name="Patient_Name" id="Patient_Name">
-    <br>
-    <br>
-    <label for="Patient_Age"> Patient Age : </label><input type="number" name="Patient_Age" id="Patient_Age">
-    <br>
-    <br>
-    <label for="Patient_Gender"> Patient Gender : </label><input type="" name="Patient_Gender" id="Patient_Gender">
-    <br>
-    <br>
-    <label for="Patient_Allergies"> Patient Allergies : </label><textarea name="Patient_Allergies" id="Patient_Allergies">Mention Allergies Here</textarea>
     <br>
     <br>
     <label for="Prescription_Date">Date : </label><input type="date" name="Prescription_Date" id="Prescription_Date">
@@ -44,13 +33,10 @@
     <label for="Patient_Mobile_No">Patient Mobile No : </label><input type="number" name="Patient_Mobile_No" id="Patient_Mobile_No">
     <br>
     <br>
-    <label for="Patient_Image">Patient Image : </label><input type="file" name="Patient_Image" id="Patient_Image">
+    <label for="Patient_Image">Patient Image : </label><input type="file" name="Patient_Image" id="Patient_Image" accept="image/*" >
     <br>
     <br>
     <label for="Patient_Condition_Description"> Patient Condition Description : </label><textarea name="Patient_Condition_Description" id="Patient_Condition_Description">Mention Patient Condition</textarea>
-    <br>
-    <br>
-    <label for="Patient_Medicine"> Patient Medicine : </label><textarea name="Patient_Medicine" id="Patient_Medicine">Mention Medicines</textarea>
     <br>
     <br>
     <input type="submit" value="Add Data">

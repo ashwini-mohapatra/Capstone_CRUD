@@ -11,6 +11,38 @@
 <button type="submit"><a href="/create">Create</a></button>
 <button type="submit"><a href="/read">Read</a></button>
 <button type="submit"><a href="/">Home</a></button>
-<button type="submit"><a href="/delete">Delete</a></button>
+
+{% for prescription in Prescriptions %}
+<form method="post" action="" >
+    {%csrf_token%}
+    <br>
+    <br>
+    <label for="Patient_Name">Patient Name : </label><input type="text" name="Patient_Name" id="Patient_Name" value="{{ prescription.Patient_Name }}">
+    <br>
+    <br>
+    <label for="Prescription_Date">Date : </label><input type="date" name="Prescription_Date" id="Prescription_Date" value="{{ prescription.Prescription_Date }}">
+    <br>
+    <br>
+    <label for="Patient_Weight"> Patient Weight : </label><input type="number" name="Patient_Weight" id="Patient_Weight" value="{{ prescription.Patient_Weight }}">
+    <br>
+    <br>
+    <label for="Patient_Height">Patient Height : </label><input type="number" name="Patient_Height" id="Patient_Height" value="{{ prescription.Patient_Height }}">
+    <br>
+    <br>
+    <label for="Is_Patient_Admitted">Patient Admitted : </label><input type="checkbox" name="Is_Patient_Admitted" id="Is_Patient_Admitted" value="{{ prescription.Is_Patient_Admitted }}">
+    <br>
+    <br>
+    <label for="Patient_Mobile_No">Patient Mobile No : </label><input type="number" name="Patient_Mobile_No" id="Patient_Mobile_No" value="{{ prescription.Patient_Mobile_No }}">
+    <br>
+    <br>
+    <label for="Patient_Image">Patient Image : </label><input type="file" name="Patient_Image" id="Patient_Image" value="{{ prescription.Patient_Image }}">
+    <br>
+    <br>
+    <label for="Patient_Condition_Description"> Patient Condition Description : </label><textarea name="Patient_Condition_Description" id="Patient_Condition_Description">{{ prescription.Patient_Condition_Description }}</textarea>
+    <br>
+    <br>
+    <input type="submit" value="Update Data">
+</form>
+{% endfor %}
 </body>
 </html>
