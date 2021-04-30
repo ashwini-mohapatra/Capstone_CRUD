@@ -3,6 +3,7 @@ import datetime
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
+from django.core.files.storage import FileSystemStorage
 # Create your views here.
 from django.template.defaultfilters import title
 
@@ -25,8 +26,13 @@ class Prescription_Views:
         else:
             var71 = False
         var8 = request.POST.get('Patient_Mobile_No', 000000000)
-        var9 = request.POST.get('Patient_Image','')
-        # var9 = request.FILES['Patient_Image']
+
+        # var9 = request.POST.get('Patient_Image', '')
+        var19 = request.FILES['Patient_Image']
+        fs = FileSystemStorage()
+        name = fs.save(var19.name, var19)
+        var9 = fs.url(name)
+
         var10 = request.POST.get('Patient_Condition_Description', '')
         if var0 != "":
             add = Prescription(Patient_Name=var0, Prescription_Date=var4, Patient_Weight=var5,
@@ -73,8 +79,14 @@ class Prescription_Views:
             else:
                 var71 = False
             var8 = request.POST.get('Patient_Mobile_No', 000000000)
-            var9 = request.POST.get('Patient_Image', '')
-            # var9 = request.FILES['Patient_Image']
+
+            var9 = ''
+            # var9 = request.POST.get('Patient_Image', '')
+            var19 = request.FILES['Patient_Image']
+            fs = FileSystemStorage()
+            name = fs.save(var19.name, var19)
+            var9 = fs.url(name)
+
             var10 = request.POST.get('Patient_Condition_Description', '')
             if var0 != "":
                 add = Prescription(Patient_No=pid, Patient_Name=var0, Prescription_Date=var4, Patient_Weight=var5,

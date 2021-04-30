@@ -2,7 +2,6 @@ from datetime import date
 
 from django.db import models
 
-
 # Create your models here.
 class Prescription(models.Model):
     Patient_No = models.BigAutoField(primary_key=True, unique=True)

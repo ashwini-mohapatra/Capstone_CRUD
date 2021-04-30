@@ -38,7 +38,7 @@
         <td>{{ prescription.Patient_Height }}</td>
         <td>{{ prescription.Is_Patient_Admitted }}</td>
         <td>{{ prescription.Patient_Mobile_No }}</td>
-        <td>{{ prescription.Patient_Image }}</td>
+        <td><a href="{{ prescription.Patient_Image }}">{{ prescription.Patient_Image }}</a></td>
         <td>{{ prescription.Patient_Condition_Description }}</td>
         <td>
             <a href="/update/{{ prescription.Patient_No }}">Edit</a>
